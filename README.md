@@ -82,8 +82,7 @@ funnel(rmod.mix0.v, level=c(90, 95, 99), shade=c("white", "gray55", "gray75"), y
 
 <img width="507" height="388" alt="image" src="https://github.com/user-attachments/assets/582843a0-b0c9-47fc-9cce-a5c01c95ee93" />
 
-Funnel plots provide an intuitive visualization that helps us quickly understand the distribution of study results and identify small-study effects. However, funnel plots themselves do not offer specific statistical significance, so caution is needed when interpreting results. It is typically necessary to complement them with other methods and tests for a more comprehensive assessment of publication bias. Next, we will conduct testing using an extending Egger’s regression method for multilevel meta-regression (Nakagawa et al. 2022).
-
+> Funnel plots provide an intuitive visualization that helps us quickly understand the distribution of study results and identify small-study effects. However, funnel plots themselves do not offer specific statistical significance, so caution is needed when interpreting results. It is typically necessary to complement them with other methods and tests for a more comprehensive assessment of publication bias. Next, we will conduct testing using an extending Egger’s regression method for multilevel meta-regression (Nakagawa et al. 2022).
 
 #### Testing for Publication Bias with Multilevel Meta-Regression
 ##### Publication Bias for mean
@@ -317,5 +316,5 @@ m.excl.eov <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = rd[rd$Ecosyst
 m.excl.eov
 ```
 
-These sensitivity studies generated results that are largely similar with those reported in the main article.
+> These sensitivity studies generated results that are largely similar with those reported in the main article.
 
