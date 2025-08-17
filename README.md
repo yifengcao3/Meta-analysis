@@ -100,9 +100,9 @@ summary(publication.bias.model.rr.srin)
 # No publication bias was detected based on the meta-regression with publication year and study test type as moderators
 ```
 
-######### 2.2 Publication Bias for variation
+##### Publication Bias for variation
 ```r
-### Define the multivariate meta-regression model to examine publication bias
+# Define the multivariate meta-regression model to examine publication bias
 publication.bias.model.cvr.srin <- rma.mv(yi, vi, 
                    mods= ~ + Pub_Year + Study_Test_Type, 
                    random = list(~|Study_Authors/id),
@@ -111,12 +111,12 @@ publication.bias.model.cvr.srin <- rma.mv(yi, vi,
                    data = rd)
 
 summary(publication.bias.model.cvr.srin)
-### No publication bias was detected based on the meta-regression with publication year and study test type as moderators
+# No publication bias was detected based on the meta-regression with publication year and study test type as moderators
 ```
 
-######### 2.3 Figures for publication bias
+##### Figures for publication bias
 ```r
-### Time-lag for mean
+# Time-lag for mean
 ggplot(ddd.new, aes(x = Pub_Year, y = yi)) + 
   geom_point(
     shape = 21, 
@@ -157,9 +157,9 @@ ggplot(ddd.new, aes(x = Pub_Year, y = yi)) +
     plot.margin = margin(10, 10, 10, 10)
   )
 
-### This visualization shows no time lag in the mean
+# This visualization shows no time lag in the mean
 
-### Time-lag for variation
+# Time-lag for variation
 ggplot(rd, aes(x = Pub_Year, y = yi)) + 
   geom_point(
     shape = 21, 
@@ -200,105 +200,105 @@ ggplot(rd, aes(x = Pub_Year, y = yi)) +
     plot.margin = margin(10, 10, 10, 10)
   )
 
-### This visualization shows no time lag in the variation
+# This visualization shows no time lag in the variation
 ```
 
 ###  Sensitivity analysis
-###### Remove influential outliers
-######### 1.Overall mean
+#### Remove influential outliers
+##### Overall mean
 ```r
-### Calculate hat values and the average hat value following Habeck and Schultz (2015)
+# Calculate hat values and the average hat value following Habeck and Schultz (2015)
 hat_values <- hatvalues(rmod.mix0)
 average_hat_value <- mean(hat_values)
 
-### Extract residuals
+# Extract residuals
 residuals <- residuals(rmod.mix0)
 
-### Identify indices of influential outliers
+# Identify indices of influential outliers
 influential_outliers<- which(hat_values > 2 * average_hat_value & abs(residuals) > 3.0)
 
-### Trait variation
+# Trait variation
 hat_values <- hatvalues(rmod.mix0.v)
 average_hat_value <- mean(hat_values)
 
-### Extract residuals
+# Extract residuals
 residuals <- residuals(rmod.mix0.v)
 
-### Identify indices of influential outliers
+# Identify indices of influential outliers
 influential_outliers2 <- which(hat_values > 2 * average_hat_value & abs(residuals) > 3.0)
 
-### Remove influential outliers from the data
+# Remove influential outliers from the data
 data_clean<- ddd.new[-influential_outliers1, ]; data_clean<- data_clean1[-influential_outliers2, ]
 
 data_clean2 <- rd[-influential_outliers1, ]; data_clean2 <- data_clean2[-influential_outliers2, ]
 
-### Run the rma.mv model using the cleaned data
+# Run the rma.mv model using the cleaned data
 rmod.mix0.ms <- rma.mv(yi ~ 1, V = vi, random = list(~|Study_Authors/id), method = "ML", data = data_clean1)
 rmod.mix0.ms
 ```
 
-######### 1.2 Overall variation
+##### Overall variation
 ```r
-### Run the rma.mv model using the cleaned data
+# Run the rma.mv model using the cleaned data
 rmod.mix0.vs <- rma.mv(yi ~ 1, V = vi, random = list(~|Study_Authors/id), method = "ML", data = data_clean2)
 rmod.mix0.vs
 ```
 
-###### 2 Replace extreme vi values
-######### 2.Overall mean
+#### Replace extreme vi values
+##### Overall mean
 ```r
-### There are extreme values for vi in the models, and this analysis examines whether these values have a substantial impact on the model estimates.
+# There are extreme values for vi in the models, and this analysis examines whether these values have a substantial impact on the model estimates.
 ddn <- ddd.new
 
-### Set the 2.5% and 97.5% quantiles
+# Set the 2.5% and 97.5% quantiles
 quantile(ddn$vi, probs = c(0.025, 0.975), na.rm = TRUE)
 lower_bound <- 0.0001313575
 upper_bound <- 1.1218487040
 
-### Replace extreme values in vi with the corresponding quantiles
+# Replace extreme values in vi with the corresponding quantiles
 ddn$vi[ddn$vi < lower_bound] <- lower_bound
 ddn$vi[ddn$vi > upper_bound] <- upper_bound
 
-### Model after replacing extreme vi values
+# Model after replacing extreme vi values
 m.ddnew <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = ddn, tdist = TRUE, method = "ML")
 m.ddnew
 ```
 
-######### 2.2 Overall variation
+##### Overall variation
 ```r
 dd <- rd
 
-### Set the 2.5% and 97.5% quantiles
+# Set the 2.5% and 97.5% quantiles
 quantile(rd$vi, probs = c(0.025, 0.975), na.rm = TRUE)
 lower_bound <- 0.04408487
 upper_bound <- 1.87853024
 
-### Replace extreme values in vi with the corresponding quantiles
+# Replace extreme values in vi with the corresponding quantiles
 dd$vi[dd$vi < lower_bound] <- lower_bound
 dd$vi[dd$vi > upper_bound] <- upper_bound
 
-### Model after replacing extreme vi values
+# Model after replacing extreme vi values
 m.rdnew <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = dd, tdist = TRUE, method = "ML")
 m.rdnew
 ```
 
-###### 3 Distinguishing between Ecosystems
-######### 3.Overall mean
+#### Distinguishing between Ecosystems
+##### Overall mean
 ```r
-### Exclude data for Ecosystem "aquatic"
+# Exclude data for Ecosystem "aquatic"
 m.excl.ea <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = ddd.new[ddd.new$Ecosystem != "aquatic",], tdist = TRUE, method = "ML")
 m.excl.ea
 
-### Exclude data for Ecosystem "terrestrial"
+# Exclude data for Ecosystem "terrestrial"
 m.excl.et <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = ddd.new[ddd.new$Ecosystem != "terrestrial",], tdist = TRUE, method = "ML")
 m.excl.et
 
-### Exclude data for Ecosystem "model organism"
+# Exclude data for Ecosystem "model organism"
 m.excl.eo <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = ddd.new[ddd.new$Ecosystem != "model organism",], tdist = TRUE, method = "ML")
 m.excl.eo
 ```
 
-######### Overall variation
+##### Overall variation
 ```r
 # Exclude data for Ecosystem "aquatic"
 m.excl.eav <- rma.mv(yi, vi, random = ~ | Study_Authors/id, data = rd[rd$Ecosystem != "aquatic",], tdist = TRUE, method = "ML")
@@ -314,3 +314,4 @@ m.excl.eov
 ```
 
 These sensitivity studies generated results that are largely similar with those reported in the main article.
+
