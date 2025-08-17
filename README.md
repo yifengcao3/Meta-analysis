@@ -78,9 +78,9 @@ funnel(rmod.mix0, level=c(90, 95, 99), shade=c("white", "gray55", "gray75"), yax
 
 funnel(rmod.mix0.v, level=c(90, 95, 99), shade=c("white", "gray55", "gray75"), yaxis="seinv", refline = 0, legend = TRUE); title(main = "Effect Size for Variation", col.main = "black", font.main = 1)
 ```
-<img width="1013" height="776" alt="image" src="https://github.com/user-attachments/assets/fed536d0-90bd-470c-9386-40b5bd50a941" />
+<img width="507" height="388" alt="image" src="https://github.com/user-attachments/assets/fed536d0-90bd-470c-9386-40b5bd50a941" />
 
-<img width="1013" height="776" alt="image" src="https://github.com/user-attachments/assets/582843a0-b0c9-47fc-9cce-a5c01c95ee93" />
+<img width="507" height="388" alt="image" src="https://github.com/user-attachments/assets/582843a0-b0c9-47fc-9cce-a5c01c95ee93" />
 
 Funnel plots provide an intuitive visualization that helps us quickly understand the distribution of study results and identify small-study effects. However, funnel plots themselves do not offer specific statistical significance, so caution is needed when interpreting results. It is typically necessary to complement them with other methods and tests for a more comprehensive assessment of publication bias. Next, we will conduct testing using an extending Egger’s regression method for multilevel meta-regression (Nakagawa et al. 2022).
 
@@ -202,6 +202,10 @@ ggplot(rd, aes(x = Pub_Year, y = yi)) +
 
 # This visualization shows no time lag in the variation
 ```
+<img width="506" height="388" alt="image" src="https://github.com/user-attachments/assets/b7a85785-e606-4bed-a34a-b572c5c90c9b" />
+
+<img width="506" height="388" alt="image" src="https://github.com/user-attachments/assets/252ec18f-c1ff-4f51-82e6-fa86a7872f5b" />
+
 
 ###  Sensitivity analysis
 #### Remove influential outliers
