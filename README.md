@@ -4,7 +4,7 @@
 
 ## DATA DESCRIPTION AND SUMMARY
 
-This project of mine is based on a global meta-analysis published in *Nature Communications*. It compiles trait data from plants and animals to examine how competition between native and nonnative species shapes trait distributions. Data processing involved trait standardization, effect size calculation, and mixed-effects modeling. Results show that competition reduces trait means and increases variation, with stronger impacts from nonnatives. The project demonstrates skills in large-scale data integration, ecological statistics, and reproducible analysis.
+This project is based on a global meta-analysis I led as first author, published in *Nature Communications*. It compiles trait data from plants and animals to examine how competition between native and nonnative species shapes trait distributions. Data processing involved trait standardization, effect size calculation, and mixed-effects modeling. Results show that competition reduces trait means and increases variation, with stronger impacts from nonnatives. The project demonstrates skills in large-scale data integration, ecological statistics, and reproducible analysis.
 
 
 ## PREPARATION FOR THE DATASET
@@ -37,3 +37,6 @@ We used **multi-level mixed-effects models** with random and fixed effects to an
 
 All data processing and modeling were implemented in **R** and compiled in a fully reproducible **R Markdown** workflow.
 
+## Results
+
+<img width="896" height="276" alt="image" src="https://github.com/user-attachments/assets/b140bc92-8f6f-49d4-bcfa-34e60364a3d3" />
