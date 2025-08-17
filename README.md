@@ -42,6 +42,17 @@ All data processing and modeling were implemented in **R** and compiled in a ful
 
 <img width="896" height="276" alt="image" src="https://github.com/user-attachments/assets/b140bc92-8f6f-49d4-bcfa-34e60364a3d3" />
 
+Geographically, most study authors' affiliations were situated in Asia, with representation from all continents except Antarctica. The predominant research approach was experimental, while only a small number of articles involved observation.
+
 ### Competition drives directional-disruptive pattern overall
 
 <img width="883" height="430" alt="image" src="https://github.com/user-attachments/assets/89fd9351-43a0-421f-97bb-f6bfb38db178" />
+
+### Asymmetrical competition between native and nonnative species
+
+<img width="789" height="401" alt="image" src="https://github.com/user-attachments/assets/a7b59cf4-47b1-4a45-a91a-0ccdc50a9b6c" />
+
+### Plants and animals show different trait distribution patterns
+
+<img width="782" height="408" alt="image" src="https://github.com/user-attachments/assets/e5a017c5-71f1-4230-a018-2a9c5cb0f7ac" />
+
