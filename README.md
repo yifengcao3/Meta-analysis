@@ -4,8 +4,9 @@
 
 ## DATA DESCRIPTION AND SUMMARY
 
-This project is based on a global meta-analysis I led as first author, published in *Nature Communications*. It compiles trait data from plants and animals to examine how competition between native and nonnative species shapes trait distributions. Data processing involved trait standardization, effect size calculation, and mixed-effects modeling. Results show that competition reduces trait means and increases variation, with stronger impacts from nonnatives. The project demonstrates skills in large-scale data integration, ecological statistics, and reproducible analysis.
+This project builds on a global meta-analysis I led as first author, published in Nature Communications. It compiles trait data from both plants and animals to investigate how competition between native and nonnative species shapes trait distributions. Data processing involved **trait standardization, effect size calculation, and mixed-effects modeling**. The workflow followed **PRISMA guidelines, incorporating systematic literature screening, extraction of text and figure-based data, trait categorization, and meta-analysis using metafor, multcomp, and bibliometrix in R**.
 
+Results indicate that competition generally reduces trait means while increasing trait variation, with stronger impacts observed for interactions involving nonnative species. This project demonstrates expertise in large-scale data integration, ecological statistics, and reproducible research workflows.
 
 ## PREPARATION FOR THE DATASET
 
@@ -40,3 +41,7 @@ All data processing and modeling were implemented in **R** and compiled in a ful
 ## Results
 
 <img width="896" height="276" alt="image" src="https://github.com/user-attachments/assets/b140bc92-8f6f-49d4-bcfa-34e60364a3d3" />
+
+### Competition drives directional-disruptive pattern overall
+
+<img width="883" height="430" alt="image" src="https://github.com/user-attachments/assets/89fd9351-43a0-421f-97bb-f6bfb38db178" />
